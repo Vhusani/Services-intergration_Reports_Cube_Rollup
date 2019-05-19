@@ -1,0 +1,3142 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/18/2019 9:05:59 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-34O4OJA"
+  DTS:CreatorName="DESKTOP-34O4OJA\cc"
+  DTS:DTSID="{96C494CB-9B50-42C9-9229-B24747522CC8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Stellenbosch"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{E14410EC-B226-4DC4-A61C-751035411CB7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimCourseFacilitator"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E7344A01-8362-449A-A1E9-445814EAF5F2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimCourseFacilitator"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimCourseFacilitator\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input].Columns[Copy of CourseID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of CourseID"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of CourseID]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input].Columns[Copy of FK_FacilitatorID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of FK_FacilitatorID"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_FacilitatorID]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input].Columns[Copy of FacilitatorID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of FacilitatorID"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FacilitatorID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewCourseID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewCourseID]"
+                      name="NewCourseID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of CourseID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of CourseID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFKFacilitator]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFKFacilitator]"
+                      name="NewFKFacilitator"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_FacilitatorID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of FK_FacilitatorID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFacilitatorID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFacilitatorID]"
+                      name="NewFacilitatorID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FacilitatorID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of FacilitatorID]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimCourseFacilitator\DimCourseFacilitator"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DimCourseFacilitator"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Stellenbosch.Course.CourseID, Stellenbosch.Course.Course_Name, Stellenbosch.Course.NQF_Level, Stellenbosch.Course.FK_FacilitatorID, Stellenbosch.Facilitator.FacilitatorID, Stellenbosch.Facilitator.Facilitator_Name
+FROM            Stellenbosch.Course CROSS JOIN
+                         Stellenbosch.Facilitator</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Connections[OleDbConnection]"
+                  connectionManagerID="{462501A5-FBB9-4276-9578-319B922DCA9D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_Project]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[CourseID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[CourseID]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[CourseID]"
+                      name="CourseID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Course_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[Course_Name]"
+                      length="100"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Course_Name]"
+                      name="Course_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[NQF_Level]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[NQF_Level]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[NQF_Level]"
+                      name="NQF_Level"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FK_FacilitatorID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[FK_FacilitatorID]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FK_FacilitatorID]"
+                      name="FK_FacilitatorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FacilitatorID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[FacilitatorID]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FacilitatorID]"
+                      name="FacilitatorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Facilitator_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[Facilitator_Name]"
+                      length="100"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Facilitator_Name]"
+                      name="Facilitator_Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[CourseID]"
+                      dataType="i4"
+                      name="CourseID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[Course_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Course_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[NQF_Level]"
+                      dataType="i4"
+                      name="NQF_Level" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[FK_FacilitatorID]"
+                      dataType="i4"
+                      name="FK_FacilitatorID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[FacilitatorID]"
+                      dataType="i4"
+                      name="FacilitatorID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].ExternalColumns[Facilitator_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Facilitator_Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[CourseID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[CourseID]"
+                      name="CourseID" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[Course_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[Course_Name]"
+                      name="Course_Name" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[NQF_Level]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[NQF_Level]"
+                      name="NQF_Level" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[FK_FacilitatorID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[FK_FacilitatorID]"
+                      name="FK_FacilitatorID" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[FacilitatorID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[FacilitatorID]"
+                      name="FacilitatorID" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[Facilitator_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[Facilitator_Name]"
+                      name="Facilitator_Name" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimCourseFacilitator\ID Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="ID Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input].Columns[CourseID]"
+                      cachedDataType="i4"
+                      cachedName="CourseID"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[CourseID]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input].Columns[FK_FacilitatorID]"
+                      cachedDataType="i4"
+                      cachedName="FK_FacilitatorID"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FK_FacilitatorID]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input].Columns[FacilitatorID]"
+                      cachedDataType="i4"
+                      cachedName="FacilitatorID"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FacilitatorID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of CourseID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of CourseID]"
+                      name="Copy of CourseID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[CourseID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_FacilitatorID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_FacilitatorID]"
+                      name="Copy of FK_FacilitatorID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FK_FacilitatorID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FacilitatorID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output].Columns[Copy of FacilitatorID]"
+                      name="Copy of FacilitatorID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[FacilitatorID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimCourseFacilitator\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCourseFacilitator]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimCourseFacilitator\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{D6B51131-EEFA-4B4E-B8DF-6733FA3C3F95}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_ProjectDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Course_Name"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_Name]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Course_Name]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NQF_Level]"
+                      cachedDataType="i4"
+                      cachedName="NQF_Level"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NQF_Level]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[NQF_Level]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Facilitator_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Facilitator_Name"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Facilitator_Name]"
+                      lineageId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output].Columns[Facilitator_Name]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewCourseID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewCourseID"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_CourseID]"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewCourseID]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewFKFacilitator]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFKFacilitator"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_FacilitatorID]"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFKFacilitator]" />
+                    <inputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewFacilitatorID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFacilitatorID"
+                      externalMetadataColumnId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_FacilitatorID]"
+                      lineageId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output].Columns[NewFacilitatorID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_CourseID]"
+                      dataType="wstr"
+                      length="20"
+                      name="alt_CourseID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Course_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NQF_Level]"
+                      dataType="i4"
+                      name="NQF_Level" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_FacilitatorID]"
+                      dataType="wstr"
+                      length="20"
+                      name="busi_FK_FacilitatorID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_FacilitatorID]"
+                      dataType="wstr"
+                      length="20"
+                      name="alt_FacilitatorID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Facilitator_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Facilitator_Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCourseFacilitator\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCourseFacilitator\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCourseFacilitator\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimCourseFacilitator.Paths[Data Conversion Output]"
+              endId="Package\Load DimCourseFacilitator\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Load DimCourseFacilitator\ID Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load DimCourseFacilitator.Paths[Derived Column Output]"
+              endId="Package\Load DimCourseFacilitator\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load DimCourseFacilitator\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load DimCourseFacilitator.Paths[OLE DB Source Output]"
+              endId="Package\Load DimCourseFacilitator\ID Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCourseFacilitator\DimCourseFacilitator.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load dimStudents"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0314A0E3-E8E6-40B4-8D32-3E1F32198878}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load dimStudents"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load dimStudents\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input].Columns[Copy of StudentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of StudentID"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input].Columns[Copy of FK_CourseID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of FK_CourseID"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of FK_CourseID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewStudentID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewStudentID]"
+                      name="NewStudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of StudentID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewFKCourseID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewFKCourseID]"
+                      name="NewFKCourseID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of FK_CourseID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of FK_CourseID]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load dimStudents\DimStudents"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DimStudents"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stellenbosch].[Student]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load dimStudents\DimStudents.Connections[OleDbConnection]"
+                  connectionManagerID="{462501A5-FBB9-4276-9578-319B922DCA9D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_Project]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[StudentID]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[StudentID]"
+                      name="StudentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Student_Name]"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Name]"
+                      name="Student_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Student_Surname]"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Surname]"
+                      name="Student_Surname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Identity_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Identity_number]"
+                      length="13"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Identity_number]"
+                      name="Identity_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Phone_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Phone_Number]"
+                      length="10"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Phone_Number]"
+                      name="Phone_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[FK_CourseID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[FK_CourseID]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[FK_CourseID]"
+                      name="FK_CourseID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[StudentID]"
+                      dataType="i4"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Student_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Student_Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Student_Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Identity_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Identity_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[Phone_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Phone_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].ExternalColumns[FK_CourseID]"
+                      dataType="i4"
+                      name="FK_CourseID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[StudentID]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[StudentID]"
+                      name="StudentID" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Student_Name]"
+                      name="Student_Name" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Student_Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Student_Surname]"
+                      name="Student_Surname" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Identity_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Identity_number]"
+                      name="Identity_number" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Phone_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[Phone_Number]"
+                      name="Phone_Number" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[FK_CourseID]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[FK_CourseID]"
+                      name="FK_CourseID" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load dimStudents\ID conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="ID conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input].Columns[StudentID]"
+                      cachedDataType="i4"
+                      cachedName="StudentID"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[StudentID]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input].Columns[FK_CourseID]"
+                      cachedDataType="i4"
+                      cachedName="FK_CourseID"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[FK_CourseID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of StudentID]"
+                      name="Copy of StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[StudentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of FK_CourseID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output].Columns[Copy of FK_CourseID]"
+                      name="Copy of FK_CourseID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[FK_CourseID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load dimStudents\Students DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Students DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dimstudent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load dimStudents\Students DW.Connections[OleDbConnection]"
+                  connectionManagerID="{D6B51131-EEFA-4B4E-B8DF-6733FA3C3F95}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_ProjectDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Student_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Student_Name"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Student_Name]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Name]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Student_Surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Student_Surname"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Student_Surname]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Student_Surname]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Identity_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="Identity_number"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Identity_number]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Identity_number]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[Phone_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Phone_Number"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Number]"
+                      lineageId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output].Columns[Phone_Number]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[NewStudentID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewStudentID"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[alt_StudentID]"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewStudentID]" />
+                    <inputColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].Columns[NewFKCourseID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFKCourseID"
+                      externalMetadataColumnId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_CourseID]"
+                      lineageId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output].Columns[NewFKCourseID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[alt_StudentID]"
+                      dataType="wstr"
+                      length="20"
+                      name="alt_StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Student_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Student_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Student_Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Student_Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Identity_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Identity_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Phone_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_CourseID]"
+                      dataType="wstr"
+                      length="20"
+                      name="busi_FK_CourseID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load dimStudents\Students DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load dimStudents\Students DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\Students DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load dimStudents\Students DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load dimStudents\Students DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load dimStudents.Paths[Data Conversion Output]"
+              endId="Package\Load dimStudents\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Load dimStudents\ID conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load dimStudents.Paths[Derived Column Output]"
+              endId="Package\Load dimStudents\Students DW.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load dimStudents\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load dimStudents.Paths[OLE DB Source Output]"
+              endId="Package\Load dimStudents\ID conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load dimStudents\DimStudents.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load FactMarks"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E3C02D5B-DBB1-4209-97D5-BB7CF7DD8D80}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load FactMarks"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load FactMarks\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input].Columns[MarksID]"
+                      cachedDataType="i4"
+                      cachedName="MarksID"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[MarksID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input].Columns[FK_StudentID]"
+                      cachedDataType="i4"
+                      cachedName="FK_StudentID"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FK_StudentID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input].Columns[FaciliID]"
+                      cachedDataType="i4"
+                      cachedName="FaciliID"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FaciliID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MarksID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MarksID]"
+                      name="Copy of MarksID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[MarksID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_StudentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_StudentID]"
+                      name="Copy of FK_StudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FK_StudentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FaciliID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FaciliID]"
+                      name="Copy of FaciliID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FaciliID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactMarks\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input].Columns[Copy of MarksID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of MarksID"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MarksID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input].Columns[Copy of FK_StudentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of FK_StudentID"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_StudentID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input].Columns[Copy of FaciliID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of FaciliID"
+                      lineageId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FaciliID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewMarksID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewMarksID]"
+                      name="NewMarksID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MarksID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of MarksID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFKStudentID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFKStudentID]"
+                      name="NewFKStudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FK_StudentID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of FK_StudentID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFaciliID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFaciliID]"
+                      name="NewFaciliID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Stellenbosch" + (DT_WSTR,20)#{Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FaciliID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Stellenbosch" + (DT_WSTR,20)[Copy of FaciliID]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactMarks\Lookup DimCourseFacilitator"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimCourseFacilitator"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCourseFacilitator]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCourseFacilitator]) [refTable]
+where [refTable].[alt_FacilitatorID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="alt_CourseID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Course_Name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NQF_Level" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="busi_FK_FacilitatorID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="alt_FacilitatorID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Facilitator_Name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFaciliID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Connections[OleDbConnection]"
+                  connectionManagerID="{D6B51131-EEFA-4B4E-B8DF-6733FA3C3F95}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_ProjectDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input].Columns[NewFaciliID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFaciliID"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFaciliID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">alt_FacilitatorID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Match Output].Columns[CFID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Match Output].Columns[CFID]"
+                      name="CFID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactMarks\Lookup DimStudent"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimStudent"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dimstudent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dimstudent]) [refTable]
+where [refTable].[alt_StudentID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="alt_StudentID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Student_Name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Student_Surname" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Gender" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Identity_number" dataType="DT_STR" length="13" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Email" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Phone_Number" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="busi_FK_CourseID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFKStudentID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactMarks\Lookup DimStudent.Connections[OleDbConnection]"
+                  connectionManagerID="{D6B51131-EEFA-4B4E-B8DF-6733FA3C3F95}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_ProjectDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input].Columns[NewFKStudentID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFKStudentID"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFKStudentID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">alt_StudentID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Match Output].Columns[DimStudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Match Output].Columns[DimStudentID]"
+                      name="DimStudentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactMarks\Marks"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Marks"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select m.*, f.FacilitatorID as FaciliID
+from Stellenbosch.Facilitator as f join Stellenbosch.Course as c 
+on f.FacilitatorID = c.FK_FacilitatorID join Stellenbosch.Student as s
+on c.CourseID = s.FK_CourseID join Stellenbosch.Marks as m
+on s.StudentID = m.FK_StudentID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactMarks\Marks.Connections[OleDbConnection]"
+                  connectionManagerID="{462501A5-FBB9-4276-9578-319B922DCA9D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_Project]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[MarksID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[MarksID]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[MarksID]"
+                      name="MarksID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[isInternational]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[isInternational]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[isInternational]"
+                      name="isInternational"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[Mark]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[Mark]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[Mark]"
+                      name="Mark"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FK_StudentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[FK_StudentID]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FK_StudentID]"
+                      name="FK_StudentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FaciliID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[FaciliID]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[FaciliID]"
+                      name="FaciliID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[MarksID]"
+                      dataType="i4"
+                      name="MarksID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[isInternational]"
+                      dataType="bool"
+                      name="isInternational" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[Mark]"
+                      dataType="numeric"
+                      name="Mark"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[FK_StudentID]"
+                      dataType="i4"
+                      name="FK_StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].ExternalColumns[FaciliID]"
+                      dataType="i4"
+                      name="FaciliID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[MarksID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[MarksID]"
+                      name="MarksID" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[isInternational]"
+                      dataType="bool"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[isInternational]"
+                      name="isInternational" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[Mark]"
+                      dataType="numeric"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[Mark]"
+                      name="Mark"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[FK_StudentID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[FK_StudentID]"
+                      name="FK_StudentID" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[FaciliID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[FaciliID]"
+                      name="FaciliID" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactMarks\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactMarks]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactMarks\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{D6B51131-EEFA-4B4E-B8DF-6733FA3C3F95}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.BI_ProjectDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[isInternational]"
+                      cachedDataType="bool"
+                      cachedName="isInternational"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isInternational]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[isInternational]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Mark]"
+                      cachedDataType="numeric"
+                      cachedName="Mark"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mark]"
+                      lineageId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output].Columns[Mark]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DimStudentID]"
+                      cachedDataType="i4"
+                      cachedName="DimStudentID"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimStudentID]"
+                      lineageId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Match Output].Columns[DimStudentID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewMarksID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewMarksID"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_MarksID]"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewMarksID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewFKStudentID]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="NewFKStudentID"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_StudentID]"
+                      lineageId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output].Columns[NewFKStudentID]" />
+                    <inputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CFID]"
+                      cachedDataType="i4"
+                      cachedName="CFID"
+                      externalMetadataColumnId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimCFID]"
+                      lineageId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Match Output].Columns[CFID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alt_MarksID]"
+                      dataType="wstr"
+                      length="20"
+                      name="alt_MarksID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isInternational]"
+                      dataType="bool"
+                      name="isInternational" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mark]"
+                      dataType="numeric"
+                      name="Mark"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[busi_FK_StudentID]"
+                      dataType="wstr"
+                      length="20"
+                      name="busi_FK_StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimStudentID]"
+                      dataType="i4"
+                      name="DimStudentID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimCFID]"
+                      dataType="i4"
+                      name="DimCFID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactMarks\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactMarks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactMarks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load FactMarks.Paths[Data Conversion Output]"
+              endId="Package\Load FactMarks\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Load FactMarks\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load FactMarks.Paths[Derived Column Output]"
+              endId="Package\Load FactMarks\Lookup DimStudent.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load FactMarks\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load FactMarks.Paths[Lookup Match Output]"
+              endId="Package\Load FactMarks\Lookup DimCourseFacilitator.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactMarks\Lookup DimStudent.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactMarks.Paths[Lookup Match Output1]"
+              endId="Package\Load FactMarks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactMarks\Lookup DimCourseFacilitator.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactMarks.Paths[OLE DB Source Output]"
+              endId="Package\Load FactMarks\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load FactMarks\Marks.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{348000AC-7EE1-4E07-8525-FB750C813363}"
+      DTS:From="Package\Load dimStudents"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load DimCourseFacilitator" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4B8B4A3C-8D34-4D80-B148-A1BB3A440487}"
+      DTS:From="Package\Load DimCourseFacilitator"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load FactMarks" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Load DimCourseFacilitator"
+          TopLeft="84.5,108.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load dimStudents"
+          TopLeft="4.5,5.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Load FactMarks"
+          TopLeft="214.984848484849,210.752525252525" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="86,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="99.5,61"
+              Start="0,0"
+              End="99.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="95.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="95.5,30.5"
+                    Point2="99.5,30.5"
+                    Point3="99.5,34.5" />
+                  <mssgle:LineSegment
+                    End="99.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="185.5,150.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.484848484849,60.2525252525253"
+              Start="0,0"
+              End="105.484848484849,52.7525252525253">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1262626262626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.1262626262626"
+                    Point2="0,30.1262626262626"
+                    Point3="4,30.1262626262626" />
+                  <mssgle:LineSegment
+                    End="101.484848484849,30.1262626262626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.484848484849,30.1262626262626"
+                    Point2="105.484848484849,30.1262626262626"
+                    Point3="105.484848484849,34.1262626262626" />
+                  <mssgle:LineSegment
+                    End="105.484848484849,52.7525252525253" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DimCourseFacilitator">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Load DimCourseFacilitator\DimCourseFacilitator"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Load DimCourseFacilitator\ID Conversion"
+          TopLeft="141.5,88.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load DimCourseFacilitator\Derived Column"
+          TopLeft="274.5,170.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load DimCourseFacilitator\OLE DB Destination"
+          TopLeft="452.5,57.5" />
+        <EdgeLayout
+          Id="Package\Load DimCourseFacilitator.Paths[OLE DB Source Output]"
+          TopLeft="93.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.5,41"
+              Start="0,0"
+              End="120.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="116.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.5,20.5"
+                    Point2="120.5,20.5"
+                    Point3="120.5,24.5" />
+                  <mssgle:LineSegment
+                    End="120.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCourseFacilitator.Paths[Derived Column Output]"
+          TopLeft="375.833333333333,170.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.166666666667,-71"
+              Start="0,0"
+              End="162.166666666667,-63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-24.8380462724936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-24.8380462724936"
+                    Point2="0,-28.8380462724936"
+                    Point3="4,-28.8380462724936" />
+                  <mssgle:LineSegment
+                    End="158.166666666667,-28.8380462724936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.166666666667,-28.8380462724936"
+                    Point2="162.166666666667,-28.8380462724936"
+                    Point3="162.166666666667,-32.8380462724936" />
+                  <mssgle:LineSegment
+                    End="162.166666666667,-63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCourseFacilitator.Paths[Data Conversion Output]"
+          TopLeft="214,130.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.5,40"
+              Start="0,0"
+              End="137.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="133.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.5,20"
+                    Point2="137.5,20"
+                    Point3="137.5,24" />
+                  <mssgle:LineSegment
+                    End="137.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimCourseFacilitator\DimCourseFacilitator">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimCourseFacilitator\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load dimStudents">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Load dimStudents\ID conversion"
+          TopLeft="133.5,113.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Load dimStudents\Students DW"
+          TopLeft="424.5,97.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Load dimStudents\DimStudents"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load dimStudents\Derived Column"
+          TopLeft="255.5,209.5" />
+        <EdgeLayout
+          Id="Package\Load dimStudents.Paths[Derived Column Output]"
+          TopLeft="356.833333333333,209.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.666666666667,-70"
+              Start="0,0"
+              End="137.666666666667,-62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-24.4318766066838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-24.4318766066838"
+                    Point2="0,-28.4318766066838"
+                    Point3="4,-28.4318766066838" />
+                  <mssgle:LineSegment
+                    End="133.666666666667,-28.4318766066838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.666666666667,-28.4318766066838"
+                    Point2="137.666666666667,-28.4318766066838"
+                    Point3="137.666666666667,-32.4318766066838" />
+                  <mssgle:LineSegment
+                    End="137.666666666667,-62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load dimStudents.Paths[Data Conversion Output]"
+          TopLeft="205.5,155.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.666666666667,54"
+              Start="0,0"
+              End="102.666666666667,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0668380462725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0668380462725"
+                    Point2="0,32.0668380462725"
+                    Point3="4,32.0668380462725" />
+                  <mssgle:LineSegment
+                    End="98.6666666666667,32.0668380462725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.6666666666667,32.0668380462725"
+                    Point2="102.666666666667,32.0668380462725"
+                    Point3="102.666666666667,36.0668380462725" />
+                  <mssgle:LineSegment
+                    End="102.666666666667,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load dimStudents.Paths[OLE DB Source Output]"
+          TopLeft="75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.5,66"
+              Start="0,0"
+              End="130.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="126.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.5,33"
+                    Point2="130.5,33"
+                    Point3="130.5,37" />
+                  <mssgle:LineSegment
+                    End="130.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load dimStudents\Students DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load dimStudents\DimStudents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load FactMarks">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load FactMarks\OLE DB Destination"
+          TopLeft="746.928571428571,112.642857142857" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load FactMarks\Lookup DimStudent"
+          TopLeft="501,189" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load FactMarks\Derived Column"
+          TopLeft="267.5,201.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Load FactMarks\Lookup DimCourseFacilitator"
+          TopLeft="514.388888888889,298.833333333333" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Load FactMarks\Marks"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load FactMarks\Data Conversion"
+          TopLeft="116.5,98.5" />
+        <EdgeLayout
+          Id="Package\Load FactMarks.Paths[OLE DB Source Output]"
+          TopLeft="59,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.5,51"
+              Start="0,0"
+              End="135.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="131.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.5,25.5"
+                    Point2="135.5,25.5"
+                    Point3="135.5,29.5" />
+                  <mssgle:LineSegment
+                    End="135.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactMarks.Paths[Lookup Match Output1]"
+          TopLeft="655.055555555556,298.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.373015873016,-144.190476190476"
+              Start="0,0"
+              End="177.373015873016,-136.690476190476">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-54.3212177694937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-54.3212177694937"
+                    Point2="0,-58.3212177694937"
+                    Point3="4,-58.3212177694937" />
+                  <mssgle:LineSegment
+                    End="173.373015873016,-58.3212177694937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173.373015873016,-58.3212177694937"
+                    Point2="177.373015873016,-58.3212177694937"
+                    Point3="177.373015873016,-62.3212177694937" />
+                  <mssgle:LineSegment
+                    End="177.373015873016,-136.690476190476" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="40.4951212177579,-53.3212177694937,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactMarks.Paths[Lookup Match Output]"
+          TopLeft="586.5,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.3888888888889,67.8333333333334"
+              Start="0,0"
+              End="34.3888888888889,60.3333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.9166666666667"
+                    Point2="0,33.9166666666667"
+                    Point3="4,33.9166666666667" />
+                  <mssgle:LineSegment
+                    End="30.3888888888889,33.9166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.3888888888889,33.9166666666667"
+                    Point2="34.3888888888889,33.9166666666667"
+                    Point3="34.3888888888889,37.9166666666667" />
+                  <mssgle:LineSegment
+                    End="34.3888888888889,60.3333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.9969422743055,38.9166666666667,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactMarks.Paths[Derived Column Output]"
+          TopLeft="421.5,222.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.5,-12.5"
+              Start="0,0"
+              End="72,-12.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.75,0"
+                    Point2="39.75,0"
+                    Point3="39.75,-4" />
+                  <mssgle:LineSegment
+                    End="39.75,-8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.75,-8.5"
+                    Point2="39.75,-12.5"
+                    Point3="43.75,-12.5" />
+                  <mssgle:LineSegment
+                    End="72,-12.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactMarks.Paths[Data Conversion Output]"
+          TopLeft="194.5,140.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150,61"
+              Start="0,0"
+              End="150,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="146,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146,30.5"
+                    Point2="150,30.5"
+                    Point3="150,34.5" />
+                  <mssgle:LineSegment
+                    End="150,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactMarks\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactMarks\Lookup DimStudent">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dimstudent]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactMarks\Lookup DimCourseFacilitator">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCourseFacilitator]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactMarks\Marks">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
